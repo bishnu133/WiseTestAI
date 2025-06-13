@@ -1,0 +1,27 @@
+# Example configuration for multi-browser testing
+
+project:
+  name: "Multi-Browser Test Suite"
+
+browser:
+  type: "${BROWSER_TYPE}"  # Set via environment variable
+  headless: true
+  viewport:
+    width: 1920
+    height: 1080
+
+execution:
+  parallel: 3  # Run 3 browsers in parallel
+  retry_count: 1
+
+# Browser-specific settings
+browsers:
+  chromium:
+    args:
+      - "--disable-blink-features=AutomationControlled"
+      - "--disable-dev-shm-usage"
+  firefox:
+    preferences:
+      "network.cookie.cookieBehavior": 0
+  webkit:
+    ignore_https_errors: true

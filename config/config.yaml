@@ -1,0 +1,70 @@
+# config/config.yaml - Main configuration for test execution settings
+
+# Project settings
+project:
+  name: "WiseTest Framework"
+  version: "1.0.0"
+  description: "AI-powered scriptless test automation framework"
+
+# Browser settings (defaults - can be overridden by environment configs)
+browser:
+  type: "chromium"  # chromium, firefox, webkit
+  headless: false
+  viewport:
+    width: 1920
+    height: 1080
+  timeout: 30000  # 30 seconds
+  slow_mo: 100   # Slow down by milliseconds
+
+# AI Model settings
+ai_model:
+  type: "yolo-world"  # yolo-world, mobilenet, pattern, none
+  confidence_threshold: 0.6
+  use_cache: true
+  cache_ttl: 86400  # 24 hours in seconds
+
+# Test execution settings
+execution:
+  parallel: 1  # Number of parallel browsers
+  retry_count: 2  # Retry failed tests
+  screenshot_on_failure: true
+  video_recording: false
+  wait_time: 500  # Default wait time in ms
+
+dynamic_element_wait: 1.5
+
+# Default wait times (can be overridden in environment configs)
+wait_after_actions:
+  default: 0.5
+  click: 2.0
+  navigate: 3.0
+  search: 2.0
+  input: 0.3
+  select: 1.0
+  call_api: 0.5
+  authenticate: 1.0
+  upload_file: 1.0
+
+# Reporting settings
+reporting:
+  format: "html"  # html, json, both
+  output_dir: "reports"
+  include_screenshots: true
+  include_logs: true
+  api_logs_dir: "reports/api_logs"
+
+# Logging settings
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/test_execution.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Feature parser settings
+parser:
+  features_dir: "features"
+
+# Cache settings
+cache:
+  enabled: true
+  directory: ".cache"
+  element_cache_ttl: 3600  # 1 hour

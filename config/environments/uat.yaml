@@ -1,0 +1,25 @@
+base_url: "https://www.myecommerce.com"
+
+database:
+  host: "prod-db.myecommerce.com"
+  port: 5432
+  name: "ecommerce_prod"
+
+api:
+  base_url: "https://api.myecommerce.com"
+  version: "v1"
+
+test_users:
+  # Limited test users for production
+  monitoring:
+    username: "monitoring@myecommerce.com"
+    password: "${PROD_MONITORING_PASSWORD}"  # From environment variable
+
+feature_flags:
+  new_checkout: true
+  social_login: true
+
+# Production-specific settings
+monitoring:
+  enabled: true
+  alert_threshold: 5000  # ms

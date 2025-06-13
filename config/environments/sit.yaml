@@ -1,0 +1,22 @@
+base_url: "https://staging.myecommerce.com"
+
+database:
+  host: "staging-db.myecommerce.com"
+  port: 5432
+  name: "ecommerce_staging"
+
+api:
+  base_url: "https://staging-api.myecommerce.com"
+  version: "v1"
+
+test_users:
+  admin:
+    username: "admin@staging.test"
+    password: "StagingAdmin456!"
+  customer:
+    username: "customer@staging.test"
+    password: "StagingCustomer456!"
+
+feature_flags:
+  new_checkout: true
+  social_login: true
